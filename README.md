@@ -30,7 +30,7 @@ Install the gems:
 
 Create a PostgreSQL database:
 
-`$ psql -d template1 -c "CREATE DATABASE lean-coffee-production"`
+`$ psql -d template1 -c 'CREATE DATABASE "lean-coffee-production"'`
 
 Initialize the database:
 
@@ -38,7 +38,7 @@ Initialize the database:
 
 Then add the constraints on topics.votes (only positive numbers):
 
-`rake db:add_constraints`
+`$ rake db:add_constraints`
 
 Run the server:
 
@@ -46,7 +46,7 @@ Run the server:
 
 ### Notes
 
-Constraings on votes can be removed by running:
+Constraints on votes can be removed by running:
 
 `rake db:remove_constraints`
 
