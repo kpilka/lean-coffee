@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307235927) do
+ActiveRecord::Schema.define(version: 20150613202754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "sessions", force: :cascade do |t|
-    t.string   "status"
-    t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.string   "slug"
+    t.integer  "team_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.datetime "session_date"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -32,7 +34,4 @@ ActiveRecord::Schema.define(version: 20150307235927) do
     t.integer  "session_id"
   end
 
-  add_index "topics", ["session_id"], name: "index_topics_on_session_id", using: :btree
-
-  add_foreign_key "topics", "sessions"
 end

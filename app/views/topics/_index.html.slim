@@ -18,13 +18,15 @@ div ng-controller="TopicsCtrl as topicsCtrl" class="animated fadeIn lanes"
 
         i class="sort fa fa-sort-amount-desc" ng-click="service.sort()"
 
-        form ng-submit="topicsCtrl.create()" ng-if="$first"
+        form ng-submit="topicsCtrl.create()" ng-if="$first" ng-init="topicsCtrl.session_id=#{@session.id}"
           input ng-model="topicsCtrl.title" class="new-topic" type="text"
 
         ul class="topics"
           li[
             ng-controller="TopicCtrl as topicCtrl"
-            ng-repeat="topic in service.topics | filter:(lane | lowercase | underscores)"
+            #ng-repeat="topic in service.topics"
+              h1 =@session.id
+            ng-repeat="topic in service.topics | filter:{session_id: #{@session.id}} | filter:(lane | lowercase | underscores)"
             data-drag="true"
             data-jqyoui-options="{revert: 'invalid'}"
             ng-model="service.topics"

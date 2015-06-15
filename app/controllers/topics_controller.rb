@@ -99,7 +99,7 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:title, :status, :votes)
+    params.require(:topic).permit(:title, :status, :votes, :session_id)
   end
 
   def push_new_topic topic

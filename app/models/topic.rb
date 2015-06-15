@@ -1,4 +1,7 @@
 class Topic < ActiveRecord::Base
+  
+  belongs_to :session
+
   extend Enumerize
 
   enumerize :status, 
