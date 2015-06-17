@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 
@@ -70,6 +68,10 @@ gem 'dotenv-rails'
 
 # Nice URLs
 gem 'friendly_id'
+
+# ZURB
+gem 'foundation-rails', '~> 5.5.2.1'
+gem 'foundation-icons-sass-rails', '~> 3.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

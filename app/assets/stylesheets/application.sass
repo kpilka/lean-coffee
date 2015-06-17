@@ -15,6 +15,7 @@
 @import "font-awesome"
 @import "topics"
 @import "mixins/responsive"
+@import "foundation"
 
 *
   box-sizing: border-box
@@ -48,3 +49,38 @@ p
 .wf-active h3,
 .wf-active p
   visibility: visible
+
+.session
+  background-color: #eaeaea
+  border-color: #ccc
+  border-right: 6px solid #274388
+  margin: 5px
+
+.session_title
+  text-transform: uppercase
+  font-weight: bold
+
+.button
+  background-color: #0c5c5f
+  margin: 10px
+
+.button.small
+  background-color: #ffba7e
+  color: #333
+
+h2
+  color: #333
+
+a
+  color: #172f6a
+
+#session_scroll
+  max-height: 400px
+  overflow-y: scroll
+
+.lane .new-topic:focus
+  background-color: transparent
+  border-color: #fff
+
+#element_handle .columns:last-child
+  float: left

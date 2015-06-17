@@ -1,35 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Sessions</h1>
+<div class="row">
+  <div class="large-12 columns">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Slug</th>
-      <th>Team</th>
-      <th>created_at</th>
-      <th>updated_at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <h2>All sessions</h2>
 
-  <tbody>
-    <% @sessions.each do |session| %>
-      <tr>
-        <td><%= session.title %></td>
-        <td><%= session.slug %></td>
-        <td><%= session.team_id %></td>
-        <td><%= session.created_at.to_formatted_s(:default) %></td>
-        <td><%= session.updated_at.to_formatted_s(:default) %></td>
-        <td><%= link_to 'Show', session %></td>
-        <td><%= link_to 'Edit', edit_session_path(session) %></td>
-        <td><%= link_to 'Destroy', session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Slug</th>
+          <th>Team</th>
+          <th>created_at</th>
+          <th>updated_at</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% @sessions.each do |session| %>
+          <tr>
+            <td><%= session.title %></td>
+            <td><%= session.slug %></td>
+            <td><%= session.team_id %></td>
+            <td><%= session.created_at.to_formatted_s(:default) %></td>
+            <td><%= session.updated_at.to_formatted_s(:default) %></td>
+            <td><%= link_to 'Show', session %></td>
+            <td><%= link_to 'Edit', edit_session_path(session) %></td>
+            <td><%= link_to 'Destroy', session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Session', new_session_path %>
+    <br>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <%= link_to 'Create new session', new_session_path, :class => "button round" %>
+  </div>
+</div>

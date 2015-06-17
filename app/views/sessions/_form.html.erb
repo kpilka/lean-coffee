@@ -11,15 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>  
-  <div class="field">
-    <%= f.label :team_id %><br>
-    <%= f.number_field :team_id %>
+  <!-- Form -->
+  <div class="row">
+    <div class="large-8 columns">
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </div>  
+      <div class="field">
+        <%= f.label :team_id %><br>
+        <%= f.collection_select :team_id, Team.all.order(:name), "id", "name",{:selected => @session.team_id}%>
+        <div style="margin-bottom: 20px">You can create a <%= link_to 'new team', new_team_path%> here.</div>
+      </div>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <!-- Actions -->
+  <div class="row">
+    <%= f.submit :class => "button round"%>
   </div>
 <% end %>

@@ -1,6 +1,7 @@
 class Session < ActiveRecord::Base
 
   has_many :topics, dependent: :destroy
+  belongs_to :team
 
   # Nice URLs
   extend FriendlyId

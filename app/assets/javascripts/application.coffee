@@ -13,6 +13,7 @@
 #= require jquery
 #= require jquery-ui
 #= require jquery_ujs
+#= require foundation
 #= require turbolinks
 #= require angular
 #= require pusher
@@ -24,8 +25,11 @@
 #= require angular/config
 #= require_tree .
 
-window.pusherClient   = new Pusher PUSHER_KEY, cluster: 'eu'
+window.pusherClient   = new Pusher 'PUSHER_KEY', cluster: 'eu'
 window.pusherSocketId = null
 
 pusherClient.connection.bind 'connected', =>
   window.pusherSocketId = pusherClient.connection.socket_id
+
+() ->
+  $(document).foundation()

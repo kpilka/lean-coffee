@@ -1,0 +1,93 @@
+
+<div class="row">
+  <div class="large-3 columns">
+    <p id="notice"><%= notice %></p>
+    <h2>Dashboard</h2>
+  </div>
+  <div class="large-9 columns">
+    <ul class="right button-group">
+      <li><a href=<%=new_session_path%> class="button default round">Create new session</a></li>
+      <li><a href=<%=new_team_path%> class="button default round">Create new team</a></li>
+    </ul>
+  </div>
+</div>
+
+<% @teams.each_with_index do |team, idx| %>
+  
+  <!-- 3 Lanes side by side -->
+  <% if idx % 3 == 0 %>
+    <div class="row" id="element_handle"> 
+  <% end %>
+
+  <!-- Lane -->
+  <div class="large-4 columns ">
+
+    <!-- Team with all sessions -->
+    <div class="panel" id="session_scroll">
+
+      <!-- Team name & team actions -->
+      <div class="row">
+        <div class="large-9 columns">
+          <span style="font-size: 2em; font-weight: bold; text-decoration: underline;"><%= team.name %></span>
+        </div>
+        <div class="large-3 columns">
+          <div class="row">
+            <%= link_to 'Edit', edit_team_path(team) %>
+          </div>
+          <div class="row">
+            <%= link_to 'Delete', team, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="large-12 columns">
+          <span class="description"><%= team.description %></span>
+        </div>
+      </div><!-- END: Team name & team actions -->
+
+      <!-- Sessions -->
+      <!-- <div id="session_scroll" %> -->
+        <% team.sessions.each do |session| %>
+          <div class="row">
+            <div class="panel session">
+              <div class="row">
+                <div class="large-9 columns">
+                  <div class="row">
+                    <span class="session_title"><%= session.title %></span>
+                  </div>
+                  <div class="row">
+                    <span>created:&nbsp;</span>
+                    <span><%= session.created_at.to_formatted_s(:default) %></span>
+                  </div>
+                  <div class="row">
+                    <span>updated:</span>
+                    <span><%= session.updated_at.to_formatted_s(:default) %></span>
+                  </div>
+                </div>
+                <div class="large-3 columns">
+                  <div class="row">
+                    <%= link_to 'Show', session %>
+                  </div>
+                  <div class="row">
+                    <%= link_to 'Edit', edit_session_path(session) %>
+                  </div>
+                  <div class="row">
+                    <%= link_to 'Delete', session, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %> <!-- END: Sessions -->
+      <!-- </div> END: Session scroll -->
+
+    </div> <!-- END: Team with all sessions -->
+    <!-- 3 Lanes side by side -->
+    <% if idx % 3 == 2 %>
+      </div>
+    <% end %>
+  
+  </div> <!-- END: Lane -->
+
+
+<% end %>
