@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   before_action :set_session, only: [:show, :edit, :update, :destroy]
-  before_action :set_session_date, only: [:create]
 
   # GET /sessions
   # GET /sessions.json
@@ -25,7 +24,10 @@ class SessionsController < ApplicationController
   # POST /sessions
   # POST /sessions.json
   def create
-    
+    @session = Session.new(session_params)
+
+    # Save the session with a date, to be able to use the date as a slug
+    @session.new_date = Time.now
 
     respond_to do |format|
       if @session.save
@@ -72,9 +74,4 @@ class SessionsController < ApplicationController
     def session_params
       params.require(:session).permit(:title, :slug, :team_id)
     end
-
-    def set_session_date
-      @session = Session.new(session_params)
-      @session.session_date = Time.now
-  end
 end
