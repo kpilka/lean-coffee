@@ -25,6 +25,6 @@ class Session < ActiveRecord::Base
   end
 
   def session_slug
-    new_date.to_formatted_s(:default)
+    new_session.to_formatted_s(:default)
   end
 end
