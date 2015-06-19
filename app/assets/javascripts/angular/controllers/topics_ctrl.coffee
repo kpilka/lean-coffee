@@ -4,7 +4,7 @@ angular.module "lean-coffee"
 
     @create = =>
       if @title.length
-        topicsService.create {session_id: @session_id, title: @title}
+        topicsService.create session_id: @session_id, title: @title
         @title = ""
 
     @update = (topic) =>
