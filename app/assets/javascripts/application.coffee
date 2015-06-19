@@ -25,7 +25,7 @@
 #= require angular/config
 #= require_tree .
 
-window.pusherClient   = new Pusher 'PUSHER_KEY', cluster: 'eu'
+window.pusherClient   = new Pusher PUSHER_KEY, cluster: 'eu'
 window.pusherSocketId = null
 
 pusherClient.connection.bind 'connected', =>
