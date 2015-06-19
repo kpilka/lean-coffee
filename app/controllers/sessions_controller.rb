@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
     @session = Session.new(session_params)
 
     # Save the session with a date, to be able to use the date as a slug
-    @session.new_date = Time.now
+    @session.new_session = Time.now
 
     respond_to do |format|
       if @session.save
